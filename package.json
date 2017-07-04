@@ -1,0 +1,11 @@
+{
+  "name": "3wlab_site_res_scheduler",
+  "version": "0.0.1",
+  "description": "pagina html con plugin jquery per scheduling delle risorse umane",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alessandro Aprile",
+  "license": "ISC"
+}
