@@ -1,5 +1,7 @@
 {
-  "baseMaxEventId":1000;
+  "baseMaxEventId": [
+    1000
+  ],
   "resources": [
     {
       "id": "a",
@@ -248,4 +250,14 @@
       "start": "Sun May 07 2017 03:00:00 GMT+0000",
       "end": "Sun May 07 2017 06:00:00 GMT+0000",
       "resourceId": "b",
-     
+      "id": "1050"
+    },
+    {
+      "id": "[object Object]10",
+      "resourceId": "c",
+      "start": "Sun May 07 2017 02:00:00 GMT+0000",
+      "end": "Sun May 07 2017 05:30:00 GMT+0000",
+      "title": "plauto"
+    }
+  ]
+}

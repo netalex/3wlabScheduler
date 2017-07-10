@@ -105,7 +105,8 @@
                         end.format(),
                         resource ? resource.title + ', id: ' + resource.id : '(no resource)',
                         jsEvent.originalEvent,
-                        eventData
+                        eventData,
+                        baseMaxEventId
                     );
 
                     $.ajax({
@@ -126,7 +127,7 @@
                     $.ajax({
                         url: "/baseMaxEventId",
                         type: "POST",
-                        data: baseMaxEventId,
+                        data: [baseMaxEventId],
                         dataType: "json"
                     });
 
@@ -190,4 +191,14 @@
 
 <body>
     <div id='script-warning'>
-  
+        This page should be running from a webserver, to allow fetching from the <code>json/</code> directory.
+    </div>
+    <div id='loading'>loading...</div>
+    <div id='calendar'></div>
+    <p style='text-align:center'>
+        <button id='select-G'>select G</button>
+        <button id='select-unspecified'>select w/o a resource</button>
+    </p>
+</body>
+
+</html>
