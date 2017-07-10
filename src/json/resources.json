@@ -1,0 +1,28 @@
+{[
+    { "id": "a", "title": "Andrea Capellacci", "eventColor": "Aliceblue" },
+    { "id": "b", "title": "Alessandro Aprile", "eventColor": "Antiquewhite" },
+    { "id": "c", "title": "Sergio Tosti", "eventColor": "Aqua" },
+    { "id": "d", "title": "Gloria Celentano", "eventColor": "Aquamarine" },
+    { "id": "e", "title": "Michele Belloni", "eventColor": "Azure" },
+    { "id": "f", "title": "Riccardo Pettinari", "eventColor": "Beige" },
+    { "id": "g", "title": "Claudio Agasi", "eventColor": "Bisque" },
+    { "id": "h", "title": "Davide Lombardo", "eventColor": "Black" },
+    { "id": "o", "title": "Valentina Mastropietro", "eventColor": "Burlywood" },
+    { "id": "i", "title": "Omar Shalby", "eventColor": "Blanchedalmond" },
+    { "id": "l", "title": "Azadeh Zamani", "eventColor": "Blue" },
+    { "id": "m", "title": "Zio Pino", "eventColor": "Blueviolet" },
+    { "id": "n", "title": "Adriano Sanna", "eventColor": "Brown" },
+    { "id": "o", "title": "Valentina Mastropietro", "eventColor": "Burlywood" },
+    { "id": "p", "title": "Beatrice Masini", "eventColor": "Cadetblue" },
+    { "id": "q", "title": "Andrea Martis", "eventColor": "Chartreuse" },
+    { "id": "r", "title": "Claudia Lombardi", "eventColor": "Chocolate" },
+    { "id": "s", "title": "Tahar Jeridi", "eventColor": "Coral" },
+    { "id": "t", "title": "Giovanni Giuliani", "eventColor": "Cornflowerblue" },
+    { "id": "u", "title": "Alessandro Bucci", "eventColor": "Cornsilk" },
+    { "id": "v", "title": "Chiara Assunta", "eventColor": "Crimson" },
+    { "id": "w", "title": "Mario Rossi 1", "eventColor": "Cyan" },
+    { "id": "x", "title": "Mario Rossi 2", "eventColor": "Darkblue" },
+    { "id": "y", "title": "Mario Rossi 3", "eventColor": "Darkcyan" },
+    { "id": "z", "title": "Mario Rossi 4", "eventColor": "Darkgoldenrod" }
+]
+}

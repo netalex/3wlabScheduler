@@ -1,0 +1,251 @@
+{
+  "baseMaxEventId":1000;
+  "resources": [
+    {
+      "id": "a",
+      "title": "Andrea Capellacci",
+      "eventColor": "Aliceblue"
+    },
+    {
+      "id": "b",
+      "title": "Alessandro Aprile",
+      "eventColor": "Antiquewhite"
+    },
+    {
+      "id": "c",
+      "title": "Sergio Tosti",
+      "eventColor": "Aqua"
+    },
+    {
+      "id": "d",
+      "title": "Gloria Celentano",
+      "eventColor": "Aquamarine"
+    },
+    {
+      "id": "e",
+      "title": "Michele Belloni",
+      "eventColor": "Azure"
+    },
+    {
+      "id": "f",
+      "title": "Riccardo Pettinari",
+      "eventColor": "Beige"
+    },
+    {
+      "id": "g",
+      "title": "Claudio Agasi",
+      "eventColor": "Bisque"
+    },
+    {
+      "id": "h",
+      "title": "Davide Lombardo",
+      "eventColor": "Black"
+    },
+    {
+      "id": "o",
+      "title": "Valentina Mastropietro",
+      "eventColor": "Burlywood"
+    },
+    {
+      "id": "i",
+      "title": "Omar Shalby",
+      "eventColor": "Blanchedalmond"
+    },
+    {
+      "id": "l",
+      "title": "Azadeh Zamani",
+      "eventColor": "Blue"
+    },
+    {
+      "id": "m",
+      "title": "Zio Pino",
+      "eventColor": "Blueviolet"
+    },
+    {
+      "id": "n",
+      "title": "Adriano Sanna",
+      "eventColor": "Brown"
+    },
+    {
+      "id": "o",
+      "title": "Valentina Mastropietro",
+      "eventColor": "Burlywood"
+    },
+    {
+      "id": "p",
+      "title": "Beatrice Masini",
+      "eventColor": "Cadetblue"
+    },
+    {
+      "id": "q",
+      "title": "Andrea Martis",
+      "eventColor": "Chartreuse"
+    },
+    {
+      "id": "r",
+      "title": "Claudia Lombardi",
+      "eventColor": "Chocolate"
+    },
+    {
+      "id": "s",
+      "title": "Tahar Jeridi",
+      "eventColor": "Coral"
+    },
+    {
+      "id": "t",
+      "title": "Giovanni Giuliani",
+      "eventColor": "Cornflowerblue"
+    },
+    {
+      "id": "u",
+      "title": "Alessandro Bucci",
+      "eventColor": "Cornsilk"
+    },
+    {
+      "id": "v",
+      "title": "Chiara Assunta",
+      "eventColor": "Crimson"
+    },
+    {
+      "id": "w",
+      "title": "Mario Rossi 1",
+      "eventColor": "Cyan"
+    },
+    {
+      "id": "x",
+      "title": "Mario Rossi 2",
+      "eventColor": "Darkblue"
+    },
+    {
+      "id": "y",
+      "title": "Mario Rossi 3",
+      "eventColor": "Darkcyan"
+    },
+    {
+      "id": "z",
+      "title": "Mario Rossi 4",
+      "eventColor": "Darkgoldenrod"
+    },
+    {
+      "id": "z1",
+      "title": "Son Goku",
+      "eventColor": "violet"
+    }
+  ],
+  "events": [
+    {
+      "id": "1",
+      "resourceId": "b",
+      "start": "2017-07-06T02:00:00",
+      "end": "2017-07-07T07:00:00",
+      "title": "event 1"
+    },
+    {
+      "id": "2",
+      "resourceId": "c",
+      "start": "2017-07-07T05:00:00",
+      "end": "2017-07-07T22:00:00",
+      "title": "event 2"
+    },
+    {
+      "id": "3",
+      "resourceId": "d",
+      "start": "2017-07-06",
+      "end": "2017-07-08",
+      "title": "event 3"
+    },
+    {
+      "id": "4",
+      "resourceId": "e",
+      "start": "2017-07-07T03:00:00",
+      "end": "2017-07-07T08:00:00",
+      "title": "event 4"
+    },
+    {
+      "id": "5",
+      "resourceId": "f",
+      "start": "2017-07-07T00:30:00",
+      "end": "2017-07-07T02:30:00",
+      "title": "event 5"
+    },
+    {
+      "id": "6",
+      "resourceIds": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z"
+      ],
+      "start": "2017-07-11T00:30:00",
+      "end": "2017-07-11T02:30:00",
+      "title": "MEGARIUNIONE GENERALE"
+    },
+    {
+      "id": "18",
+      "resourceId": "d",
+      "start": "2017-07-10T00:30:00",
+      "end": "2017-07-10T02:30:00",
+      "title": "event POSTed"
+    },
+    {
+      "{\"title\":\"pluto2\",\"start\":\"2017-05-07T02:00:00\",\"end\":\"2017-05-07T04:00:00\",\"resourceId\":\"b\",\"id\":1010}": "",
+      "id": "HJfTOg-r-"
+    },
+    {
+      "{\"title\":\"minnie\",\"start\":\"2017-05-07T02:00:00\",\"end\":\"2017-05-07T03:30:00\",\"resourceId\":\"c\",\"id\":1010}": "",
+      "id": "SJQ-KgWSZ"
+    },
+    {
+      "title": "megaprogetto brutal",
+      "start": "Sun May 07 2017 00:00:00 GMT+0000",
+      "end": "Sun May 07 2017 02:30:00 GMT+0000",
+      "resourceId": "f",
+      "id": "1010"
+    },
+    {
+      "title": "riunione commerciali",
+      "start": "Sun May 07 2017 02:00:00 GMT+0000",
+      "end": "Sun May 07 2017 02:30:00 GMT+0000",
+      "resourceId": "c",
+      "id": "1020"
+    },
+    {
+      "title": "fancazzismo",
+      "start": "Sun May 07 2017 00:30:00 GMT+0000",
+      "end": "Sun May 07 2017 04:30:00 GMT+0000",
+      "resourceId": "e",
+      "id": "1030"
+    },
+    {
+      "title": "grafica",
+      "start": "Sun May 07 2017 01:30:00 GMT+0000",
+      "end": "Sun May 07 2017 04:00:00 GMT+0000",
+      "resourceId": "e",
+      "id": "1040"
+    },
+    {
+      "title": "megaprogettone",
+      "start": "Sun May 07 2017 03:00:00 GMT+0000",
+      "end": "Sun May 07 2017 06:00:00 GMT+0000",
+      "resourceId": "b",
+     
