@@ -1,6 +1,6 @@
 {
-  "baseMaxEventId": [
-    1000
+  "config": [
+    {"id":"1","baseMaxEventId":"1000"}
   ],
   "resources": [
     {

@@ -16,14 +16,29 @@
     <script src='../node_modules/fullcalendar-scheduler/dist/scheduler.min.js'></script>
     <title>3wlab Scheduler</title>
     <script>
+
+
+
+
     $(function() { // document ready
-        // var baseMaxEventId = 1000; //oriBBuule ma temporaneo(AA)
+        var baseMaxEventId = 1000; //oriBBuule ma temporaneo(AA)
+        $.ajax({
+                url: "/config/1",
+                type: "GET",
+                success: function(data){
+                    baseMaxEventId=data.baseMaxEventId;
+                    consle.log("baseMaxEventId: "+baseMaxEventId);
+                    console.log("/congig/1: "+ data);
+                }
+        })
+
+
         $('#calendar').fullCalendar({
             schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
             locale: 'it',
-            now: '2017-07-07', //setted for testing pourpose
-            now: moment(String).format(),
-            defaultDate: '2017-05-07',
+            // now: '2017-07-07', //setted for testing pourpose
+            // now: moment(String).format(),
+            // defaultDate: '2017-05-07',
             navLinks: true, // can click day/week names to navigate views
             editable: true, // enable draggable events
             selectable: true,
@@ -74,10 +89,6 @@
                     $('#script-warning').show();
                 }
             },
-            baseMaxEventId: {
-                url: "/baseMaxEventId",
-                type: "GET"
-            },
             eventRender: function(eventData, element) {
                 element.css("font-weight:bold");
                 console.log("evento creato");
@@ -123,11 +134,12 @@
                             console.log(xhr);
                         }
                     });
+                    var baseMaxEventIdObj = {"id":"1","baseMaxEventId": baseMaxEventId}
 
                     $.ajax({
                         url: "/baseMaxEventId",
                         type: "POST",
-                        data: [baseMaxEventId],
+                        data: JSON.stringify(baseMaxEventIdObj),
                         dataType: "json"
                     });
 
