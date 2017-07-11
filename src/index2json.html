@@ -117,22 +117,33 @@
             },
             eventRender: function(eventData, element) {
                 element.css("font-weight:bold");
-                console.log("evento creato");
-                // $.ajax({
-                //     url: "/events/" + eventData.id,
-                //     type: "PUT",
-                //     data: eventData,
-                //     dataType: "json",
-                //     success: function(response) {
-                //         console.log(response);
-                //     },
-                //     error: function(xhr) {
-                //         debugger;
-                //         console.log(xhr);
-                //     }
-                // });
+                console.log("evento creato, id: " + eventData.id);
             },
-            select: function(start, end, jsEvent, view, resource) {
+            eventDrop: function(eventData, delta, revertFunc) {
+                alert(eventData.title + " was dropped on " + eventData.start.format());
+
+                if (!confirm("Are you sure about this change?")) {
+                    revertFunc();
+                } else {
+                    $('#calendar').fullCalendar('updateEvent', eventData);
+                    $.ajax({
+                        url: "/events/" + eventData.id,
+                        type: "PUT",
+                        traditional: true,
+                        data: eventData,
+                        // dataType: "json",
+                        success: function(response) {
+                            console.log(response);
+                        },
+                        error: function(xhr) {
+                            debugger;
+                            console.log(xhr);
+                        }
+                    });
+                }
+            },
+
+                select: function(start, end, jsEvent, view, resource) {
 
 
                 var title = prompt('Event Title:');

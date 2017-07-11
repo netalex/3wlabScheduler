@@ -298,10 +298,17 @@
     },
     {
       "id": "1111",
-      "resourceId": "c",
-      "start": "1499738400",
-      "end": "1499749200",
-      "title": "plalissandro"
+      "resourceId": "b",
+      "start": "Tue Jul 11 2017 02:30:00 GMT+0000",
+      "end": "Tue Jul 11 2017 05:30:00 GMT+0000",
+      "title": "plalissandro",
+      "source": "[object Object]",
+      "_id": "1111",
+      "allDay": "false",
+      "_allDay": "false",
+      "_start": "Tue Jul 11 2017 02:30:00 GMT+0000",
+      "_end": "Tue Jul 11 2017 05:30:00 GMT+0000",
+      "resourceIds": ""
     },
     {
       "id": "1110",
