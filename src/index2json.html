@@ -27,8 +27,8 @@
                 type: "GET",
                 success: function(data){
                     baseMaxEventId=data.baseMaxEventId;
-                    consle.log("baseMaxEventId: "+baseMaxEventId);
-                    console.log("/congig/1: "+ data);
+                    console.log("baseMaxEventId: "+baseMaxEventId);
+                    console.log("/congig/1: "+ JSON.stringify(data));
                 }
         })
 
@@ -93,7 +93,7 @@
                 element.css("font-weight:bold");
                 console.log("evento creato");
             },
-            select: function(start, end, jsEvent, view, resource, baseMaxEventId) {
+            select: function(start, end, jsEvent, view, resource) {
 
 
                 var title = prompt('Event Title:');
@@ -102,13 +102,13 @@
 
                 if (title) {
                     eventData = {
-                        id: baseMaxEventId + 10,
+                        id: JSON.parse(baseMaxEventId) + 10,
                         resourceId: resource.id,
                         start: start,
                         end: end,
                         title: title
                     };
-                    baseMaxEventId = eventData.id + 1;
+                    baseMaxEventId = JSON.parse(eventData.id) + 1;
 
                     console.log(
                         'select callback',
@@ -117,7 +117,7 @@
                         resource ? resource.title + ', id: ' + resource.id : '(no resource)',
                         jsEvent.originalEvent,
                         eventData,
-                        baseMaxEventId
+                        "baseMaxEventId"+JSON.stringify(baseMaxEventId)
                     );
 
                     $.ajax({
@@ -137,9 +137,9 @@
                     var baseMaxEventIdObj = {"id":"1","baseMaxEventId": baseMaxEventId}
 
                     $.ajax({
-                        url: "/baseMaxEventId",
-                        type: "POST",
-                        data: JSON.stringify(baseMaxEventIdObj),
+                        url: "/config/1",
+                        type: "PUT",
+                        data: baseMaxEventIdObj,
                         dataType: "json"
                     });
 
