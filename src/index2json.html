@@ -96,12 +96,12 @@
                     },
                     success: function(data) {
                         var events = [];
-                        $(data)/*.find('event')*/.each(function() {
+                        $(data) /*.find('event')*/ .each(function() {
                             events.push({
                                 id: $(this).attr('id'),
                                 resourceId: $(this).attr('resourceId'),
                                 start: moment.unix($(this).attr('start')).format("YYYY-MM-DDTHH:mm:ss"),
-                                end:  moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
+                                end: moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
                                 title: $(this).attr('title')
                             });
                         });
@@ -118,6 +118,19 @@
             eventRender: function(eventData, element) {
                 element.css("font-weight:bold");
                 console.log("evento creato");
+                // $.ajax({
+                //     url: "/events/" + eventData.id,
+                //     type: "PUT",
+                //     data: eventData,
+                //     dataType: "json",
+                //     success: function(response) {
+                //         console.log(response);
+                //     },
+                //     error: function(xhr) {
+                //         debugger;
+                //         console.log(xhr);
+                //     }
+                // });
             },
             select: function(start, end, jsEvent, view, resource) {
 
