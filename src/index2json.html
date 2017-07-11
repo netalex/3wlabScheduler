@@ -16,20 +16,16 @@
     <script src='../node_modules/fullcalendar-scheduler/dist/scheduler.min.js'></script>
     <title>3wlab Scheduler</title>
     <script>
-
-
-
-
     $(function() { // document ready
         var baseMaxEventId = 1000; //oriBBuule ma temporaneo(AA)
         $.ajax({
-                url: "/config/1",
-                type: "GET",
-                success: function(data){
-                    baseMaxEventId=data.baseMaxEventId;
-                    console.log("baseMaxEventId: "+baseMaxEventId);
-                    console.log("/congig/1: "+ JSON.stringify(data));
-                }
+            url: "/config/1",
+            type: "GET",
+            success: function(data) {
+                baseMaxEventId = data.baseMaxEventId;
+                console.log("baseMaxEventId: " + baseMaxEventId);
+                console.log("/congig/1: " + JSON.stringify(data));
+            }
         })
 
 
@@ -37,7 +33,7 @@
             schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
             locale: 'it',
             // now: '2017-07-07', //setted for testing pourpose
-            // now: moment(String).format(),
+            now: moment().valueOf(),
             // defaultDate: '2017-05-07',
             navLinks: true, // can click day/week names to navigate views
             editable: true, // enable draggable events
@@ -80,14 +76,44 @@
                     $('#script-warning').show();
                 }
             },
-            events: { // you can also specify a plain string like 'json/events.json'
-                // url: 'json/events.json',
-                url: '/events',
-                type: 'GET',
-                // cache: true,
-                error: function() {
-                    $('#script-warning').show();
-                }
+            // events: { // you can also specify a plain string like 'json/events.json'
+            //     // url: 'json/events.json',
+            //     url: '/events',
+            //     type: 'GET',
+            //     // cache: true,
+            //     error: function() {
+            //         $('#script-warning').show();
+            //     }
+            // },
+            events: function(start, end, timezone, callback) {
+                $.ajax({
+                    url: '/events',
+                    type: 'GET',
+                    dataType: "json",
+                    data: {
+                        start: start.unix(),
+                        end: end.unix()
+                    },
+                    success: function(data) {
+                        var events = [];
+                        $(data)/*.find('event')*/.each(function() {
+                            events.push({
+                                id: $(this).attr('id'),
+                                resourceId: $(this).attr('resourceId'),
+                                start: moment.unix($(this).attr('start')).format("YYYY-MM-DDTHH:mm:ss"),
+                                end:  moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
+                                title: $(this).attr('title')
+                            });
+                        });
+                        console.log("data fetched: \r\n" + JSON.stringify(data));
+                        $('#calendar').fullCalendar('renderEvents', data, true);
+                        console.log("events: \r\n" + JSON.stringify(events));
+                        callback(events);
+                    },
+                    error: function() {
+                        $('#script-warning').show();
+                    }
+                });
             },
             eventRender: function(eventData, element) {
                 element.css("font-weight:bold");
@@ -104,20 +130,22 @@
                     eventData = {
                         id: JSON.parse(baseMaxEventId) + 10,
                         resourceId: resource.id,
-                        start: start,
-                        end: end,
+                        start: start.valueOf(),
+                        end: end.valueOf(),
                         title: title
                     };
                     baseMaxEventId = JSON.parse(eventData.id) + 1;
 
                     console.log(
                         'select callback',
-                        start.format(),
-                        end.format(),
+                        start,
+                        start.valueOf(),
+                        end,
+                        end.valueOf(),
                         resource ? resource.title + ', id: ' + resource.id : '(no resource)',
                         jsEvent.originalEvent,
                         eventData,
-                        "baseMaxEventId"+JSON.stringify(baseMaxEventId)
+                        "baseMaxEventId" + JSON.stringify(baseMaxEventId)
                     );
 
                     $.ajax({
@@ -134,7 +162,10 @@
                             console.log(xhr);
                         }
                     });
-                    var baseMaxEventIdObj = {"id":"1","baseMaxEventId": baseMaxEventId}
+                    var baseMaxEventIdObj = {
+                        "id": "1",
+                        "baseMaxEventId": baseMaxEventId
+                    }
 
                     $.ajax({
                         url: "/config/1",

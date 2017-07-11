@@ -2,7 +2,7 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1112"
+      "baseMaxEventId": "1178"
     }
   ],
   "resources": [
@@ -141,36 +141,36 @@
     {
       "id": "1",
       "resourceId": "b",
-      "start": "2017-07-06T02:00:00",
-      "end": "2017-07-07T07:00:00",
+      "start": "1499306400",
+      "end": "1499410800",
       "title": "event 1"
     },
     {
       "id": "2",
       "resourceId": "c",
-      "start": "2017-07-07T05:00:00",
-      "end": "2017-07-07T22:00:00",
+      "start": "1499403600",
+      "end": "1499464800",
       "title": "event 2"
     },
     {
       "id": "3",
       "resourceId": "d",
-      "start": "2017-07-06",
-      "end": "2017-07-08",
+      "start": "1499299200",
+      "end": "1499472000",
       "title": "event 3"
     },
     {
       "id": "4",
       "resourceId": "e",
-      "start": "2017-07-07T03:00:00",
-      "end": "2017-07-07T08:00:00",
+      "start": "1499396400",
+      "end": "1499414400",
       "title": "event 4"
     },
     {
       "id": "5",
       "resourceId": "f",
-      "start": "2017-07-07T00:30:00",
-      "end": "2017-07-07T02:30:00",
+      "start": "1499387400",
+      "end": "1499394600",
       "title": "event 5"
     },
     {
@@ -201,101 +201,156 @@
         "y",
         "z"
       ],
-      "start": "2017-07-11T00:30:00",
-      "end": "2017-07-11T02:30:00",
+      "start": "1499733000",
+      "end": "1499740200",
       "title": "MEGARIUNIONE GENERALE"
     },
     {
       "id": "18",
       "resourceId": "d",
-      "start": "2017-07-10T00:30:00",
-      "end": "2017-07-10T02:30:00",
+      "start": "1499646600",
+      "end": "1499653800",
       "title": "event POSTed"
     },
     {
-      "{\"title\":\"pluto2\",\"start\":\"2017-05-07T02:00:00\",\"end\":\"2017-05-07T04:00:00\",\"resourceId\":\"b\",\"id\":1010}": "",
-      "id": "HJfTOg-r-"
+      "title": "pluto2",
+      "start": "1494122400",
+      "end": "1494129600",
+      "resourceId": "b",
+      "id": "1010 "
     },
     {
-      "{\"title\":\"minnie\",\"start\":\"2017-05-07T02:00:00\",\"end\":\"2017-05-07T03:30:00\",\"resourceId\":\"c\",\"id\":1010}": "",
-      "id": "SJQ-KgWSZ"
+      "title": "minnie",
+      "start": "1494122400",
+      "end": "1494127800",
+      "resourceId": "c",
+      "id": "1011"
     },
     {
       "title": "megaprogetto brutal",
-      "start": "Sun May 07 2017 00:00:00 GMT+0000",
-      "end": "Sun May 07 2017 02:30:00 GMT+0000",
+      "start": "1494115200",
+      "end": "1494124200",
       "resourceId": "f",
       "id": "1010"
     },
     {
       "title": "riunione commerciali",
-      "start": "Sun May 07 2017 02:00:00 GMT+0000",
-      "end": "Sun May 07 2017 02:30:00 GMT+0000",
+      "start": "1494122400",
+      "end": "1494124200",
       "resourceId": "c",
       "id": "1020"
     },
     {
       "title": "fancazzismo",
-      "start": "Sun May 07 2017 00:30:00 GMT+0000",
-      "end": "Sun May 07 2017 04:30:00 GMT+0000",
+      "start": "1494117000",
+      "end": "1494131400",
       "resourceId": "e",
       "id": "1030"
     },
     {
       "title": "grafica",
-      "start": "Sun May 07 2017 01:30:00 GMT+0000",
-      "end": "Sun May 07 2017 04:00:00 GMT+0000",
+      "start": "1494120600",
+      "end": "1494129600",
       "resourceId": "e",
       "id": "1040"
     },
     {
       "title": "megaprogettone",
-      "start": "Sun May 07 2017 03:00:00 GMT+0000",
-      "end": "Sun May 07 2017 06:00:00 GMT+0000",
+      "start": "1494126000",
+      "end": "1494136800",
       "resourceId": "b",
       "id": "1050"
     },
     {
       "id": "1061",
       "resourceId": "c",
-      "start": "Sun May 07 2017 02:00:00 GMT+0000",
-      "end": "Sun May 07 2017 05:30:00 GMT+0000",
+      "start": "1494122400",
+      "end": "1494135000",
       "title": "plauto"
     },
     {
       "id": "1071",
       "resourceId": "c",
-      "start": "Tue Jul 11 2017 02:30:00 GMT+0000",
-      "end": "Tue Jul 11 2017 05:00:00 GMT+0000",
+      "start": "1499740200",
+      "end": "1499749200",
       "title": "pergolesi"
     },
     {
       "id": "1081",
       "resourceId": "d",
-      "start": "Tue Jul 11 2017 03:30:00 GMT+0000",
-      "end": "Tue Jul 11 2017 04:00:00 GMT+0000",
+      "start": "1499743800",
+      "end": "1499745600",
       "title": "plore"
     },
     {
       "id": "109010",
       "resourceId": "b",
-      "start": "Tue Jul 11 2017 02:00:00 GMT+0000",
-      "end": "Tue Jul 11 2017 04:00:00 GMT+0000",
+      "start": "1499738400",
+      "end": "1499745600",
       "title": "fabbio"
     },
     {
       "id": "1100",
       "resourceId": "c",
-      "start": "Tue Jul 11 2017 02:30:00 GMT+0000",
-      "end": "Tue Jul 11 2017 04:30:00 GMT+0000",
+      "start": "1499740200",
+      "end": "1499747400",
       "title": "pippopluto"
     },
     {
       "id": "1111",
       "resourceId": "c",
-      "start": "Tue Jul 11 2017 02:00:00 GMT+0000",
-      "end": "Tue Jul 11 2017 05:00:00 GMT+0000",
+      "start": "1499738400",
+      "end": "1499749200",
       "title": "plalissandro"
+    },
+    {
+      "id": "1110",
+      "resourceId": "c",
+      "start": "1499762011",
+      "end": "1499798010",
+      "title": "test start date"
+    },
+    {
+      "id": "1122",
+      "resourceId": "d",
+      "start": "1499740200",
+      "end": "1499751000",
+      "title": "pippo"
+    },
+    {
+      "id": "1133",
+      "resourceId": "d",
+      "start": "1499738400000",
+      "end": "1499754600000",
+      "title": "colloquio fantaghirò"
+    },
+    {
+      "id": "1144",
+      "resourceId": "e",
+      "start": "1499738400000",
+      "end": "1499751000000",
+      "title": "paperino"
+    },
+    {
+      "id": "1155",
+      "resourceId": "c",
+      "start": "1535767200000",
+      "end": "1535778000000",
+      "title": "mariangela"
+    },
+    {
+      "id": "1166",
+      "resourceId": "b",
+      "start": "1535767200000",
+      "end": "1535778000000",
+      "title": "claudio"
+    },
+    {
+      "id": "1177",
+      "resourceId": "c",
+      "start": "1499045400000",
+      "end": "1499056200000",
+      "title": "alcatraz"
     }
   ]
 }

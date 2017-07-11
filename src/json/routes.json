@@ -1,3 +1,5 @@
 {
-  /events?start=2017-07-07&end=2017-07-08&_=1499680934800 /events
+  "/events?start=:start&end=:end": "/events?start_gte=:start&end_lte=:end"
 }
+
+
