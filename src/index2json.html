@@ -100,6 +100,7 @@
                             events.push({
                                 id: $(this).attr('id'),
                                 resourceId: $(this).attr('resourceId'),
+                                resourceIds: $(this).attr('resourceIds'),
                                 start: moment.unix($(this).attr('start')).format("YYYY-MM-DDTHH:mm:ss"),
                                 end: moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
                                 title: $(this).attr('title')
@@ -161,8 +162,8 @@
                     eventData = {
                         id: JSON.parse(baseMaxEventId) + 10,
                         resourceId: resource.id,
-                        start: start.valueOf(),
-                        end: end.valueOf(),
+                        start: start.unix(),
+                        end: end.unix(),
                         title: title
                     };
                     baseMaxEventId = JSON.parse(eventData.id) + 1;

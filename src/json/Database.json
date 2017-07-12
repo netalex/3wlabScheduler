@@ -2,7 +2,7 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1178"
+      "baseMaxEventId": "1189"
     }
   ],
   "resources": [
@@ -351,6 +351,23 @@
       "start": "1499045400000",
       "end": "1499056200000",
       "title": "alcatraz"
+    },
+    {
+      "id": "11779",
+      "resourceIds": [
+        "l",
+        "m"
+      ],
+      "title": "Meeting",
+      "start": "1499862655",
+      "end": "1499865440"
+    },
+    {
+      "id": "1188",
+      "resourceId": "b",
+      "start": "149982480",
+      "end": "1499839200",
+      "title": "pippo"
     }
   ]
 }
