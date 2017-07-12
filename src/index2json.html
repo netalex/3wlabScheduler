@@ -126,11 +126,18 @@
                     revertFunc();
                 } else {
                     $('#calendar').fullCalendar('updateEvent', eventData);
+                    var eventUpdated={
+                        id: eventData.id,
+                        resourceId: eventData.resourceId,
+                        start: eventData.start.unix(),
+                        end: eventData.end.unix(),
+                        title: eventData.title
+                    };
                     $.ajax({
                         url: "/events/" + eventData.id,
                         type: "PUT",
                         traditional: true,
-                        data: eventData,
+                        data: eventUpdated,
                         // dataType: "json",
                         success: function(response) {
                             console.log(response);
