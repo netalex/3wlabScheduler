@@ -17,14 +17,33 @@
     <title>3wlab Scheduler</title>
     <script>
     $(function() { // document ready
-        var baseMaxEventId = 1000; //oriBBuule ma temporaneo(AA)
+
+        //* CRUD *//
+        function updateServer(eventUpdated) {
+            $.ajax({
+                url: "/events/" + eventUpdated.id,
+                type: "PUT",
+                traditional: true,
+                data: eventUpdated,
+                // dataType: "json",
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(xhr) {
+                    debugger;
+                    console.log(xhr);
+                }
+            });
+        };
+
+        var baseMaxEventId = 1000;
         $.ajax({
             url: "/config/1",
             type: "GET",
-            success: function(data) {
-                baseMaxEventId = data.baseMaxEventId;
+            success: function(configData) {
+                baseMaxEventId = configData.baseMaxEventId;
                 console.log("baseMaxEventId: " + baseMaxEventId);
-                console.log("/congig/1: " + JSON.stringify(data));
+                console.log("/config/1: " + JSON.stringify(configData));
             }
         })
 
@@ -33,14 +52,14 @@
             schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
             locale: 'it',
             // now: '2017-07-07', //setted for testing pourpose
-            now: moment().valueOf(),
+            now: moment(),
             // defaultDate: '2017-05-07',
             navLinks: true, // can click day/week names to navigate views
             editable: true, // enable draggable events
             selectable: true,
             selectHelper: true,
             aspectRatio: 1.8,
-            scrollTime: '00:00', // undo default 6am scrollTime
+            // scrollTime: '00:00', // undo default 6am scrollTime
             header: {
                 left: 'today prev,next',
                 center: 'title',
@@ -68,35 +87,25 @@
                 }
             },
             resourceLabelText: 'Risorse',
-            resources: { // you can also specify a plain string like 'json/resources.json'
-                // url: 'json/resources.json',
+            resources: {
                 url: '/resources',
                 type: 'GET',
                 error: function() {
                     $('#script-warning').show();
                 }
             },
-            // events: { // you can also specify a plain string like 'json/events.json'
-            //     // url: 'json/events.json',
-            //     url: '/events',
-            //     type: 'GET',
-            //     // cache: true,
-            //     error: function() {
-            //         $('#script-warning').show();
-            //     }
-            // },
             events: function(start, end, timezone, callback) {
                 $.ajax({
                     url: '/events',
                     type: 'GET',
-                    dataType: "json",
-                    data: {
+                    eventsDataType: "json",
+                    eventsData: {
                         start: start.unix(),
                         end: end.unix()
                     },
-                    success: function(data) {
+                    success: function(eventsData) {
                         var events = [];
-                        $(data) /*.find('event')*/ .each(function() {
+                        $(eventsData).each(function() {
                             events.push({
                                 id: $(this).attr('id'),
                                 resourceId: $(this).attr('resourceId'),
@@ -106,8 +115,8 @@
                                 title: $(this).attr('title')
                             });
                         });
-                        console.log("data fetched: \r\n" + JSON.stringify(data));
-                        $('#calendar').fullCalendar('renderEvents', data, true);
+                        console.log("Events Data fetched: \r\n" + JSON.stringify(eventsData));
+                        $('#calendar').fullCalendar('renderEvents', eventsData, true);
                         console.log("events: \r\n" + JSON.stringify(events));
                         callback(events);
                     },
@@ -127,31 +136,49 @@
                     revertFunc();
                 } else {
                     $('#calendar').fullCalendar('updateEvent', eventData);
-                    var eventUpdated={
+                    var eventUpdated = {
                         id: eventData.id,
                         resourceId: eventData.resourceId,
                         start: eventData.start.unix(),
                         end: eventData.end.unix(),
                         title: eventData.title
                     };
-                    $.ajax({
-                        url: "/events/" + eventData.id,
-                        type: "PUT",
-                        traditional: true,
-                        data: eventUpdated,
-                        // dataType: "json",
-                        success: function(response) {
-                            console.log(response);
-                        },
-                        error: function(xhr) {
-                            debugger;
-                            console.log(xhr);
-                        }
-                    });
+                    updateServer(eventUpdated);
+
+                }
+            },
+            eventResizeStop: function(eventData, jsEvent, ui, view) {
+                alert(eventData.title + " was resized to " + eventData.end.format());
+
+                if (!confirm("Are you sure about this change?")) {
+                    revertFunc();
+                } else {
+                    $('#calendar').fullCalendar('updateEvent', eventData);
+                    var eventUpdated = {
+                        id: eventData.id,
+                        resourceId: eventData.resourceId,
+                        start: eventData.start.unix(),
+                        end: eventData.end.unix(),
+                        title: eventData.title
+                    };
+                    updateServer(eventUpdated);
+
                 }
             },
 
-                select: function(start, end, jsEvent, view, resource) {
+            select: function(start, end, jsEvent, view, resource) {
+
+                console.log("CLICK SELECT: \n\r" +
+                    "start: " + start + "\n\r" +
+                    "end: " + end + "\n\r" +
+                    // "jsEvent: \n\r"+JSON.stringify(jsEvent)+"\n\r"+
+                    // "view: \n\r"+JSON.stringify(view)+"\n\r"+
+                    "\n\r"
+                );
+                console.log("jsEvent: ");
+                console.dir(jsEvent);
+                console.log("view: ");
+                console.dir(view);
 
 
                 var title = prompt('Event Title:');
@@ -171,9 +198,9 @@
                     console.log(
                         'select callback',
                         start,
-                        start.valueOf(),
+                        start.unix(),
                         end,
-                        end.valueOf(),
+                        end.unix(),
                         resource ? resource.title + ', id: ' + resource.id : '(no resource)',
                         jsEvent.originalEvent,
                         eventData,
@@ -221,12 +248,12 @@
             // }
         });
 
-        $('#select-G').on('click', function() {
-            $('#calendar').fullCalendar('select', '2017-05-07T02:00:00', '2017-05-07T07:00:00', 'g');
-        });
-        $('#select-unspecified').on('click', function() {
-            $('#calendar').fullCalendar('select', '2017-05-07T02:00:00', '2017-05-07T07:00:00');
-        });
+        // $('#select-G').on('click', function() {
+        //     $('#calendar').fullCalendar('select', '2017-05-07T02:00:00', '2017-05-07T07:00:00', 'g');
+        // });
+        // $('#select-unspecified').on('click', function() {
+        //     $('#calendar').fullCalendar('select', '2017-05-07T02:00:00', '2017-05-07T07:00:00');
+        // });
 
     });
     </script>
@@ -270,10 +297,10 @@
     </div>
     <div id='loading'>loading...</div>
     <div id='calendar'></div>
-    <p style='text-align:center'>
+    <!--     <p style='text-align:center'>
         <button id='select-G'>select G</button>
         <button id='select-unspecified'>select w/o a resource</button>
-    </p>
+    </p> -->
 </body>
 
 </html>

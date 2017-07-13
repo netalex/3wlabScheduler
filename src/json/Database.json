@@ -2,7 +2,7 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1189"
+      "baseMaxEventId": "1266"
     }
   ],
   "resources": [
@@ -320,54 +320,100 @@
     {
       "id": "1133",
       "resourceId": "d",
-      "start": "1499738400000",
-      "end": "1499754600000",
+      "start": "1499738400",
+      "end": "1499754600",
       "title": "colloquio fantaghirò"
     },
     {
       "id": "1144",
       "resourceId": "e",
-      "start": "1499738400000",
-      "end": "1499751000000",
+      "start": "1499738400",
+      "end": "1499751000",
       "title": "paperino"
     },
     {
       "id": "1155",
       "resourceId": "c",
-      "start": "1535767200000",
-      "end": "1535778000000",
+      "start": "1535767200",
+      "end": "1535778000",
       "title": "mariangela"
     },
     {
       "id": "1166",
       "resourceId": "b",
-      "start": "1535767200000",
-      "end": "1535778000000",
+      "start": "1535767200",
+      "end": "1535778000",
       "title": "claudio"
     },
     {
       "id": "1177",
       "resourceId": "c",
-      "start": "1499045400000",
-      "end": "1499056200000",
+      "start": "1499045400",
+      "end": "1499056200",
       "title": "alcatraz"
     },
     {
       "id": "11779",
-      "resourceIds": [
-        "l",
-        "m"
-      ],
-      "title": "Meeting",
-      "start": "1499862655",
-      "end": "1499865440"
+      "resourceId": "",
+      "start": "1499761855",
+      "end": "1499764640",
+      "title": "Meeting"
     },
     {
       "id": "1188",
       "resourceId": "b",
-      "start": "149982480",
-      "end": "1499839200",
+      "start": "150032880",
+      "end": "1499889600",
       "title": "pippo"
+    },
+    {
+      "id": "1199",
+      "resourceId": "e",
+      "start": "1499823000",
+      "end": "1499832000",
+      "title": "maracuja&lemon"
+    },
+    {
+      "id": "1210",
+      "resourceId": "h",
+      "start": "1499848200",
+      "end": "1499855400",
+      "title": "hotel"
+    },
+    {
+      "id": "1221",
+      "resourceId": "d",
+      "start": "1499823000",
+      "end": "1499824800",
+      "title": "great industries co. prject"
+    },
+    {
+      "id": "1232",
+      "resourceId": "e",
+      "start": "1499826600",
+      "end": "1499833800",
+      "title": "samuele"
+    },
+    {
+      "id": "1243",
+      "resourceId": "c",
+      "start": "1499853600",
+      "end": "1499868000",
+      "title": "pierpaolo"
+    },
+    {
+      "id": "1254",
+      "resourceId": "e",
+      "start": "1499850000",
+      "end": "1499860800",
+      "title": "firefox project"
+    },
+    {
+      "id": "1265",
+      "resourceId": "e",
+      "start": "1499850000",
+      "end": "1499859000",
+      "title": "federico"
     }
   ]
 }
