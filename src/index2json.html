@@ -17,8 +17,10 @@
     <title>3wlab Scheduler</title>
     <script>
     $(function() { // document ready
+        var baseMaxEventId = 1000;
 
         //* CRUD *//
+        //update an event
         function updateServer(eventUpdated) {
             $.ajax({
                 url: "/events/" + eventUpdated.id,
@@ -36,7 +38,6 @@
             });
         };
 
-        var baseMaxEventId = 1000;
         $.ajax({
             url: "/config/1",
             type: "GET",
