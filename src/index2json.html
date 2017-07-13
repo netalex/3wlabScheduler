@@ -11,9 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/locale/it.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js'></script>
     <script src='../node_modules/fullcalendar-scheduler/dist/scheduler.min.js'></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/locale/it.js'></script> -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/locale-all.js'></script>
     <title>3wlab Scheduler</title>
     <script>
     $(function() { // document ready
@@ -38,13 +40,14 @@
             });
         };
 
+        //get config
         $.ajax({
             url: "/config/1",
             type: "GET",
             success: function(configData) {
                 baseMaxEventId = configData.baseMaxEventId;
                 console.log("baseMaxEventId: " + baseMaxEventId);
-                console.log("/config/1: " + JSON.stringify(configData));
+                console.log("/config/1: " + JSON.stringify(configData, null, 4));
             }
         })
 
@@ -52,6 +55,18 @@
         $('#calendar').fullCalendar({
             schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
             locale: 'it',
+            weekends: false,
+            businessHours: [{
+                dow: [1, 2, 3, 4, 5], // Monday - Thursday
+                start: '9:00',
+                end: '13:00'
+            }, {
+                dow: [1, 2, 3, 4, 5],
+                start: '14:00',
+                end: '18:00'
+            }],
+            minTime: "09:00:00",
+            maxTime: "18:00:00",
             // now: '2017-07-07', //setted for testing pourpose
             now: moment(),
             // defaultDate: '2017-05-07',
@@ -116,9 +131,9 @@
                                 title: $(this).attr('title')
                             });
                         });
-                        console.log("Events Data fetched: \r\n" + JSON.stringify(eventsData));
+                        console.log("Events Data fetched: \r\n" + JSON.stringify(eventsData, null, 4));
                         $('#calendar').fullCalendar('renderEvents', eventsData, true);
-                        console.log("events: \r\n" + JSON.stringify(events));
+                        console.log("events: \r\n" + JSON.stringify(events, null, 4));
                         callback(events);
                     },
                     error: function() {
@@ -172,8 +187,6 @@
                 console.log("CLICK SELECT: \n\r" +
                     "start: " + start + "\n\r" +
                     "end: " + end + "\n\r" +
-                    // "jsEvent: \n\r"+JSON.stringify(jsEvent)+"\n\r"+
-                    // "view: \n\r"+JSON.stringify(view)+"\n\r"+
                     "\n\r"
                 );
                 console.log("jsEvent: ");
@@ -190,6 +203,7 @@
                     eventData = {
                         id: JSON.parse(baseMaxEventId) + 10,
                         resourceId: resource.id,
+                        //come gestire l'array di risorse?
                         start: start.unix(),
                         end: end.unix(),
                         title: title
@@ -205,7 +219,7 @@
                         resource ? resource.title + ', id: ' + resource.id : '(no resource)',
                         jsEvent.originalEvent,
                         eventData,
-                        "baseMaxEventId" + JSON.stringify(baseMaxEventId)
+                        "baseMaxEventId" + JSON.stringify(baseMaxEventId, null, 4)
                     );
 
                     $.ajax({
