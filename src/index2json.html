@@ -74,7 +74,9 @@
             editable: true, // enable draggable events
             selectable: true,
             selectHelper: true,
-            aspectRatio: 1.8,
+            aspectRatio: 3,
+            height: $(window).height()*0.92,
+
             // scrollTime: '00:00', // undo default 6am scrollTime
             header: {
                 left: 'today prev,next',
@@ -300,8 +302,9 @@
     }
 
     #calendar {
-        max-width: 900px;
-        margin: 50px auto;
+        /* max-width: 900px; */
+        width: 90%;
+        margin: auto;
     }
     </style>
 </head>
