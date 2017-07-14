@@ -2,7 +2,7 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1266"
+      "baseMaxEventId": "1321"
     }
   ],
   "resources": [
@@ -414,6 +414,41 @@
       "start": "1499857200",
       "end": "1499866200",
       "title": "federico"
+    },
+    {
+      "id": "1276",
+      "resourceId": "c",
+      "start": "1499952600",
+      "end": "1499954400",
+      "title": "frncesca & stazio trasporti scheduler"
+    },
+    {
+      "id": "1287",
+      "resourceId": "c",
+      "start": "1499947200",
+      "end": "1499949000",
+      "title": "mario"
+    },
+    {
+      "id": "1298",
+      "resourceId": "c",
+      "start": "1499941800",
+      "end": "1499943600",
+      "title": "pippo"
+    },
+    {
+      "id": "1309",
+      "resourceId": "e",
+      "start": "1499945400",
+      "end": "1499947200",
+      "title": "grp prj"
+    },
+    {
+      "id": "1320",
+      "resourceId": "e",
+      "start": "1499958000",
+      "end": "1499959800",
+      "title": "federico sensi website"
     }
   ]
 }

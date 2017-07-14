@@ -75,7 +75,7 @@
             selectable: true,
             selectHelper: true,
             aspectRatio: 3,
-            height: $(window).height()*0.92,
+            height: $(window).height() * 0.92,
 
             // scrollTime: '00:00', // undo default 6am scrollTime
             header: {
@@ -186,6 +186,14 @@
 
             select: function(start, end, jsEvent, view, resource) {
 
+              /*   $('#modal').show();
+                console.log("$('#modal').show;");
+
+                $('#close') onclick = function() {
+                    $('#modal').hide();
+                }
+ */
+
                 console.log("CLICK SELECT: \n\r" +
                     "start: " + start + "\n\r" +
                     "end: " + end + "\n\r" +
@@ -199,6 +207,8 @@
 
                 var title = prompt('Event Title:');
                 var eventData;
+
+
 
 
                 if (title) {
@@ -306,6 +316,44 @@
         width: 90%;
         margin: auto;
     }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+    /* The Close Button */
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
     </style>
 </head>
 
@@ -319,6 +367,14 @@
         <button id='select-G'>select G</button>
         <button id='select-unspecified'>select w/o a resource</button>
     </p> -->
+    <!-- The Modal -->
+    <div id="modal" class="modal">
+        <!-- Modal content -->
+        <div class="multievent-option-modal-content">
+            <span class="close">&times;</span>
+            <div>titolo evento: <input type="text">     </div></div>
+        </div>
+    </div>
 </body>
 
 </html>
