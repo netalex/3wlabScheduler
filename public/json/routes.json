@@ -1,0 +1,5 @@
+{
+  "/events?start=:start&end=:end": "/events?start_gte=:start&end_lte=:end"
+}
+
+

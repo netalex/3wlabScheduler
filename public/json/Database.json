@@ -1,0 +1,454 @@
+{
+  "config": [
+    {
+      "id": "1",
+      "baseMaxEventId": "1321"
+    }
+  ],
+  "resources": [
+    {
+      "id": "a",
+      "title": "Andrea Capellacci",
+      "eventColor": "Aliceblue"
+    },
+    {
+      "id": "b",
+      "title": "Alessandro Aprile",
+      "eventColor": "Antiquewhite"
+    },
+    {
+      "id": "c",
+      "title": "Sergio Tosti",
+      "eventColor": "Aqua"
+    },
+    {
+      "id": "d",
+      "title": "Gloria Celentano",
+      "eventColor": "Aquamarine"
+    },
+    {
+      "id": "e",
+      "title": "Michele Belloni",
+      "eventColor": "Azure"
+    },
+    {
+      "id": "f",
+      "title": "Riccardo Pettinari",
+      "eventColor": "Beige"
+    },
+    {
+      "id": "g",
+      "title": "Claudio Agasi",
+      "eventColor": "Bisque"
+    },
+    {
+      "id": "h",
+      "title": "Davide Lombardo",
+      "eventColor": "Black"
+    },
+    {
+      "id": "o",
+      "title": "Valentina Mastropietro",
+      "eventColor": "Burlywood"
+    },
+    {
+      "id": "i",
+      "title": "Omar Shalby",
+      "eventColor": "Blanchedalmond"
+    },
+    {
+      "id": "l",
+      "title": "Azadeh Zamani",
+      "eventColor": "Blue"
+    },
+    {
+      "id": "m",
+      "title": "Zio Pino",
+      "eventColor": "Blueviolet"
+    },
+    {
+      "id": "n",
+      "title": "Adriano Sanna",
+      "eventColor": "Brown"
+    },
+    {
+      "id": "o",
+      "title": "Valentina Mastropietro",
+      "eventColor": "Burlywood"
+    },
+    {
+      "id": "p",
+      "title": "Beatrice Masini",
+      "eventColor": "Cadetblue"
+    },
+    {
+      "id": "q",
+      "title": "Andrea Martis",
+      "eventColor": "Chartreuse"
+    },
+    {
+      "id": "r",
+      "title": "Claudia Lombardi",
+      "eventColor": "Chocolate"
+    },
+    {
+      "id": "s",
+      "title": "Tahar Jeridi",
+      "eventColor": "Coral"
+    },
+    {
+      "id": "t",
+      "title": "Giovanni Giuliani",
+      "eventColor": "Cornflowerblue"
+    },
+    {
+      "id": "u",
+      "title": "Alessandro Bucci",
+      "eventColor": "Cornsilk"
+    },
+    {
+      "id": "v",
+      "title": "Chiara Assunta",
+      "eventColor": "Crimson"
+    },
+    {
+      "id": "w",
+      "title": "Mario Rossi 1",
+      "eventColor": "Cyan"
+    },
+    {
+      "id": "x",
+      "title": "Mario Rossi 2",
+      "eventColor": "Darkblue"
+    },
+    {
+      "id": "y",
+      "title": "Mario Rossi 3",
+      "eventColor": "Darkcyan"
+    },
+    {
+      "id": "z",
+      "title": "Mario Rossi 4",
+      "eventColor": "Darkgoldenrod"
+    },
+    {
+      "id": "z1",
+      "title": "Son Goku",
+      "eventColor": "violet"
+    }
+  ],
+  "events": [
+    {
+      "id": "1",
+      "resourceId": "b",
+      "start": "1499306400",
+      "end": "1499410800",
+      "title": "event 1"
+    },
+    {
+      "id": "2",
+      "resourceId": "c",
+      "start": "1499403600",
+      "end": "1499464800",
+      "title": "event 2"
+    },
+    {
+      "id": "3",
+      "resourceId": "d",
+      "start": "1499299200",
+      "end": "1499472000",
+      "title": "event 3"
+    },
+    {
+      "id": "4",
+      "resourceId": "e",
+      "start": "1499396400",
+      "end": "1499414400",
+      "title": "event 4"
+    },
+    {
+      "id": "5",
+      "resourceId": "f",
+      "start": "1499387400",
+      "end": "1499394600",
+      "title": "event 5"
+    },
+    {
+      "id": "6",
+      "resourceIds": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z"
+      ],
+      "start": "1499733000",
+      "end": "1499740200",
+      "title": "MEGARIUNIONE GENERALE"
+    },
+    {
+      "id": "18",
+      "resourceId": "d",
+      "start": "1499646600",
+      "end": "1499653800",
+      "title": "event POSTed"
+    },
+    {
+      "title": "pluto2",
+      "start": "1494122400",
+      "end": "1494129600",
+      "resourceId": "b",
+      "id": "1010 "
+    },
+    {
+      "title": "minnie",
+      "start": "1494122400",
+      "end": "1494127800",
+      "resourceId": "c",
+      "id": "1011"
+    },
+    {
+      "title": "megaprogetto brutal",
+      "start": "1494115200",
+      "end": "1494124200",
+      "resourceId": "f",
+      "id": "1010"
+    },
+    {
+      "title": "riunione commerciali",
+      "start": "1494122400",
+      "end": "1494124200",
+      "resourceId": "c",
+      "id": "1020"
+    },
+    {
+      "title": "fancazzismo",
+      "start": "1494117000",
+      "end": "1494131400",
+      "resourceId": "e",
+      "id": "1030"
+    },
+    {
+      "title": "grafica",
+      "start": "1494120600",
+      "end": "1494129600",
+      "resourceId": "e",
+      "id": "1040"
+    },
+    {
+      "title": "megaprogettone",
+      "start": "1494126000",
+      "end": "1494136800",
+      "resourceId": "b",
+      "id": "1050"
+    },
+    {
+      "id": "1061",
+      "resourceId": "c",
+      "start": "1494122400",
+      "end": "1494135000",
+      "title": "plauto"
+    },
+    {
+      "id": "1071",
+      "resourceId": "c",
+      "start": "1499740200",
+      "end": "1499749200",
+      "title": "pergolesi"
+    },
+    {
+      "id": "1081",
+      "resourceId": "d",
+      "start": "1499743800",
+      "end": "1499745600",
+      "title": "plore"
+    },
+    {
+      "id": "109010",
+      "resourceId": "b",
+      "start": "1499738400",
+      "end": "1499745600",
+      "title": "fabbio"
+    },
+    {
+      "id": "1100",
+      "resourceId": "c",
+      "start": "1499740200",
+      "end": "1499747400",
+      "title": "pippopluto"
+    },
+    {
+      "id": "1111",
+      "resourceId": "f",
+      "start": "1499740200",
+      "end": "1499751000",
+      "title": "plalissandro"
+    },
+    {
+      "id": "1110",
+      "resourceId": "c",
+      "start": "1499762011",
+      "end": "1499798010",
+      "title": "test start date"
+    },
+    {
+      "id": "1122",
+      "resourceId": "d",
+      "start": "1499740200",
+      "end": "1499751000",
+      "title": "pippo"
+    },
+    {
+      "id": "1133",
+      "resourceId": "d",
+      "start": "1499738400",
+      "end": "1499754600",
+      "title": "colloquio fantaghirò"
+    },
+    {
+      "id": "1144",
+      "resourceId": "e",
+      "start": "1499738400",
+      "end": "1499751000",
+      "title": "paperino"
+    },
+    {
+      "id": "1155",
+      "resourceId": "c",
+      "start": "1535767200",
+      "end": "1535778000",
+      "title": "mariangela"
+    },
+    {
+      "id": "1166",
+      "resourceId": "b",
+      "start": "1535767200",
+      "end": "1535778000",
+      "title": "claudio"
+    },
+    {
+      "id": "1177",
+      "resourceId": "c",
+      "start": "1499045400",
+      "end": "1499056200",
+      "title": "alcatraz"
+    },
+    {
+      "id": "11779",
+      "resourceId": "",
+      "start": "1499761855",
+      "end": "1499764640",
+      "title": "Meeting"
+    },
+    {
+      "id": "1188",
+      "resourceId": "f",
+      "start": "150040080",
+      "end": "1499896800",
+      "title": "pippo"
+    },
+    {
+      "id": "1199",
+      "resourceId": "e",
+      "start": "1499823000",
+      "end": "1499832000",
+      "title": "maracuja&lemon"
+    },
+    {
+      "id": "1210",
+      "resourceId": "h",
+      "start": "1499848200",
+      "end": "1499855400",
+      "title": "hotel"
+    },
+    {
+      "id": "1221",
+      "resourceId": "d",
+      "start": "1499823000",
+      "end": "1499824800",
+      "title": "great industries co. prject"
+    },
+    {
+      "id": "1232",
+      "resourceId": "e",
+      "start": "1499826600",
+      "end": "1499833800",
+      "title": "samuele"
+    },
+    {
+      "id": "1243",
+      "resourceId": "c",
+      "start": "1499853600",
+      "end": "1499868000",
+      "title": "pierpaolo"
+    },
+    {
+      "id": "1254",
+      "resourceId": "e",
+      "start": "1499850000",
+      "end": "1499860800",
+      "title": "firefox project"
+    },
+    {
+      "id": "1265",
+      "resourceId": "o",
+      "start": "1499857200",
+      "end": "1499866200",
+      "title": "federico"
+    },
+    {
+      "id": "1276",
+      "resourceId": "c",
+      "start": "1499952600",
+      "end": "1499954400",
+      "title": "frncesca & stazio trasporti scheduler"
+    },
+    {
+      "id": "1287",
+      "resourceId": "c",
+      "start": "1499947200",
+      "end": "1499949000",
+      "title": "mario"
+    },
+    {
+      "id": "1298",
+      "resourceId": "c",
+      "start": "1499941800",
+      "end": "1499943600",
+      "title": "pippo"
+    },
+    {
+      "id": "1309",
+      "resourceId": "e",
+      "start": "1499945400",
+      "end": "1499947200",
+      "title": "grp prj"
+    },
+    {
+      "id": "1320",
+      "resourceId": "e",
+      "start": "1499958000",
+      "end": "1499959800",
+      "title": "federico sensi website"
+    }
+  ]
+}
