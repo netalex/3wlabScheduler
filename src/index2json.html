@@ -145,7 +145,7 @@
             },
             eventRender: function(eventData, element) {
                 element.css("font-weight:bold");
-                console.log("evento creato, id: " + eventData.id);
+                console.log("eventRenderer, evento creato, id: " + eventData.id+"\n\rtitle :"+eventData.title);
             },
             eventDrop: function(eventData, delta, revertFunc) {
                 alert(eventData.title + " was dropped on " + eventData.start.format());
@@ -220,6 +220,7 @@
                         end: end.unix(),
                         title: title
                     };
+                    $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
                     baseMaxEventId = JSON.parse(eventData.id) + 1;
 
                     console.log(
@@ -241,13 +242,16 @@
                         data: eventData,
                         dataType: "json",
                         success: function(response) {
+                            console.log('success:');
                             console.log(response);
                         },
                         error: function(xhr) {
                             debugger;
+                            console.log('error:');
                             console.log(xhr);
                         }
                     });
+
                     var baseMaxEventIdObj = {
                         "id": "1",
                         "baseMaxEventId": baseMaxEventId
@@ -262,10 +266,15 @@
 
 
                     $('#calendar').fullCalendar('getResources');
-                    $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+
                 }
                 $('#calendar').fullCalendar('unselect');
-            },
+                $('#calendar').fullCalendar('renderEvents', eventsData, true);
+            }/*,
+            eventRender: function(eventData, element) {
+                element.css("font-weight:bold");
+                console.log("evento creato, id: " + eventData.id);
+            }*/
             // dayClick: function(date, jsEvent, view, resource) {
             //     console.log(
             //         'dayClick',

@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" />
     <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css' rel='stylesheet' />
     <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-    <link href='/vendor/scheduler.min.css' rel='stylesheet' />
+    <link href='../node_modules/fullcalendar-scheduler/dist/scheduler.min.css' rel='stylesheet' />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js'></script>
-    <script src='/vendor/scheduler.min.js'></script>
+    <script src='../node_modules/fullcalendar-scheduler/dist/scheduler.min.js'></script>
     <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/locale/it.js'></script> -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/locale-all.js'></script>
     <title>3wlab Scheduler</title>
@@ -24,7 +24,6 @@
         //* CRUD *//
         //update an event
         function updateServer(eventUpdated) {
-            console.log('entering updateServer')
             $.ajax({
                 url: "/events/" + eventUpdated.id,
                 type: "PUT",
@@ -32,7 +31,6 @@
                 data: eventUpdated,
                 dataType: "json",
                 success: function(response) {
-                    console.log('updateServer success:');
                     console.log(response);
                 },
                 error: function(xhr) {
@@ -115,7 +113,6 @@
                 }
             },
             events: function(start, end, timezone, callback) {
-                console.log('entering events');
                 $.ajax({
                     url: '/events',
                     type: 'GET',
@@ -147,12 +144,10 @@
                 });
             },
             eventRender: function(eventData, element) {
-                console.log('entering eventRender');
                 element.css("font-weight:bold");
                 console.log("eventRenderer, evento creato, id: " + eventData.id+"\n\rtitle :"+eventData.title);
             },
             eventDrop: function(eventData, delta, revertFunc) {
-                console.log('entering eventDrop');
                 alert(eventData.title + " was dropped on " + eventData.start.format());
 
                 if (!confirm("Are you sure about this change?")) {
@@ -171,7 +166,6 @@
                 }
             },
             eventResizeStop: function(eventData, jsEvent, ui, view) {
-                console.log('entering eventResizeStop');
                 alert(eventData.title + " was resized to " + eventData.end.format());
 
                 if (!confirm("Are you sure about this change?")) {
@@ -191,7 +185,6 @@
             },
 
             select: function(start, end, jsEvent, view, resource) {
-                console.log('entering select');
 
               /*   $('#modal').show();
                 console.log("$('#modal').show;");
@@ -227,9 +220,7 @@
                         end: end.unix(),
                         title: title
                     };
-                    console.log('ante quem')
                     $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-                    console.log('post quem')
                     baseMaxEventId = JSON.parse(eventData.id) + 1;
 
                     console.log(
@@ -251,9 +242,8 @@
                         data: eventData,
                         dataType: "json",
                         success: function(response) {
-                            console.log('select POST success:');
+                            console.log('success:');
                             console.log(response);
-                            $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
                         },
                         error: function(xhr) {
                             debugger;
@@ -276,15 +266,15 @@
 
 
                     $('#calendar').fullCalendar('getResources');
-                    //$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+
                 }
                 $('#calendar').fullCalendar('unselect');
-
-            }/*,
+                $('#calendar').fullCalendar('renderEvents', eventsData, true);
+            },
             eventRender: function(eventData, element) {
                 element.css("font-weight:bold");
                 console.log("evento creato, id: " + eventData.id);
-            }*/
+            }
             // dayClick: function(date, jsEvent, view, resource) {
             //     console.log(
             //         'dayClick',

@@ -2,7 +2,7 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1321"
+      "baseMaxEventId": "1497"
     }
   ],
   "resources": [
@@ -417,9 +417,9 @@
     },
     {
       "id": "1276",
-      "resourceId": "c",
-      "start": "1499952600",
-      "end": "1499954400",
+      "resourceId": "d",
+      "start": "1499956200",
+      "end": "1499958000",
       "title": "frncesca & stazio trasporti scheduler"
     },
     {
@@ -449,6 +449,118 @@
       "start": "1499958000",
       "end": "1499959800",
       "title": "federico sensi website"
+    },
+    {
+      "id": "1331",
+      "resourceId": "l",
+      "start": "1499860800",
+      "end": "1499869800",
+      "title": "fabbbio terzo"
+    },
+    {
+      "id": "1342",
+      "resourceId": "d",
+      "start": "1500285600",
+      "end": "1500318000",
+      "title": "oggi cpellacci"
+    },
+    {
+      "id": "1353",
+      "resourceId": "f",
+      "start": "1500282000",
+      "end": "1500294600",
+      "title": "xlyvid"
+    },
+    {
+      "id": "1364",
+      "resourceId": "i",
+      "start": "1500285600",
+      "end": "1500303600",
+      "title": "xylitolo"
+    },
+    {
+      "id": "1375",
+      "resourceId": "i",
+      "start": "1500285600",
+      "end": "1500303600",
+      "title": "ravensburger"
+    },
+    {
+      "id": "1386",
+      "resourceId": "h",
+      "start": "1500285600",
+      "end": "1500296400",
+      "title": "rosmarino"
+    },
+    {
+      "id": "1397",
+      "resourceId": "n",
+      "start": "1500289200",
+      "end": "1500303600",
+      "title": "francesco"
+    },
+    {
+      "id": "1408",
+      "resourceId": "p",
+      "start": "1500287400",
+      "end": "1500296400",
+      "title": "franco"
+    },
+    {
+      "id": "1419",
+      "resourceId": "l",
+      "start": "1500386400",
+      "end": "1500395400",
+      "title": "corrado"
+    },
+    {
+      "id": "1430",
+      "resourceId": "b",
+      "start": "1500285600",
+      "end": "1500298200",
+      "title": "marachelle"
+    },
+    {
+      "id": "1441",
+      "resourceId": "g",
+      "start": "1500289200",
+      "end": "1500296400",
+      "title": "flauto"
+    },
+    {
+      "id": "1452",
+      "resourceId": "m",
+      "start": "1500287400",
+      "end": "1500296400",
+      "title": "pippo34"
+    },
+    {
+      "id": "1463",
+      "resourceId": "h",
+      "start": "1500294600",
+      "end": "1500303600",
+      "title": "chiurlo"
+    },
+    {
+      "id": "1474",
+      "resourceId": "e",
+      "start": "1500282000",
+      "end": "1500314400",
+      "title": "papavero"
+    },
+    {
+      "id": "1485",
+      "resourceId": "f",
+      "start": "1500283800",
+      "end": "1500291000",
+      "title": "prova32"
+    },
+    {
+      "id": "1496",
+      "resourceId": "c",
+      "start": "1500282000",
+      "end": "1500660000",
+      "title": "grande"
     }
   ]
 }

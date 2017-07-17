@@ -12,4 +12,4 @@ var staticDir = fs.existsSync(userDir) ? userDir : defaultDir
 
 server.use(middlewares);
 server.use(router);
-server.listen(3000, function(){console.log('JSON server is running')})
+server.listen(3000, function(){console.log('JSON server is running on: localhost:3000')})
