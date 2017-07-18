@@ -110,43 +110,38 @@ $(function() {
 
     };
 
-    var eventsGetFunction = function(start, end, callback) {
-        $.ajax({
-                url: '/events',
-                type: 'GET',
-                dataType: 'json',
-                data: {
-                    start: start.unix(),
-                    end: end.unix()
-                },
-            })
-            .done(function(data) {
-                var events = [];
-                $(data).each(function() {
-                    events.push({
-                        id: $(this).attr('id'),
-                        resourceId: $(this).attr('resourceId'),
-                        resourceIds: $(this).attr('resourceIds'),
-                        start: moment.unix($(this).attr('start')).format("YYYY-MM-DDTHH:mm:ss"),
-                        end: moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
-                        title: $(this).attr('title')
-                    });
-                });
-                $('#calendar').fullCalendar('renderEvents', events, true); //or data?
-                console.log("eventsGetFunction success");
-                // callback(events);
-            })
-            // .then(callback(data))
-            .fail(function() {
-                $('#script-warning').show();
-                console.log("eventsGetFunction error");
-            })
-            .always(function() {
-                console.log("eventsGetFunction complete");
-            });
-            callback(events);
-
-    };
+    // var eventsGetFunction = function(start, end, timezone, callback) {
+    //     $.ajax({
+    //         url: '/events',
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         data: {
+    //             start: start.unix(),
+    //             end: end.unix()
+    //         },
+    //         success: function(data) {
+    //             var events = [];
+    //             $(data).each(function() {
+    //                 events.push({
+    //                     id: $(this).attr('id'),
+    //                     resourceId: $(this).attr('resourceId'),
+    //                     resourceIds: $(this).attr('resourceIds'),
+    //                     start: moment.unix($(this).attr('start')).format("YYYY-MM-DDTHH:mm:ss"),
+    //                     end: moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
+    //                     title: $(this).attr('title')
+    //                 });
+    //             });
+    //             $('#calendar').fullCalendar('renderEvents', events, true); //or data?
+    //             callback (events);
+    //             console.log("eventsGetFunction success");
+    //         },
+    //         error: function() {
+    //             $('#script-warning').show();
+    //             console.log("eventsGetFunction error");
+    //         }
+    //     })
+    //     // callback(events);
+    // };
 
     var eventRenderFunction = function(eventData, element) { element.css("font-weight:bold"); };
 
@@ -245,7 +240,39 @@ $(function() {
         views: viewsObj,
         resourceLabelText: 'Risorse',
         resources: resourcesObj,
-        events: function(start, end, callback) { eventsGetFunction(start, end, callback) },
+        /*events: function(start, end, callback) { eventsGetFunction(start, end, callback) },*/
+        events: function(start, end, timezone, callback) {
+        $.ajax({
+            url: '/events',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                start: start.unix(),
+                end: end.unix()
+            },
+            success: function(data) {
+                var events = [];
+                $(data).each(function() {
+                    events.push({
+                        id: $(this).attr('id'),
+                        resourceId: $(this).attr('resourceId'),
+                        resourceIds: $(this).attr('resourceIds'),
+                        start: moment.unix($(this).attr('start')).format("YYYY-MM-DDTHH:mm:ss"),
+                        end: moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
+                        title: $(this).attr('title')
+                    });
+                });
+                $('#calendar').fullCalendar('renderEvents', events, true); //or data?
+                callback (events);
+                console.log("eventsGetFunction success");
+            },
+            error: function() {
+                $('#script-warning').show();
+                console.log("eventsGetFunction error");
+            }
+        })
+        // callback(events);
+    },
         eventRender: function(eventData, element) { eventRenderFunction(eventData, element) },
         eventDrop: function(eventData, delta, revertFunc) { eventDropFunction(eventData, delta, revertFunc) },
         eventResizeStop: function(eventData, jsEvent, ui, view) { eventResizeStopFunction(eventData, jsEvent, ui, view) },

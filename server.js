@@ -10,6 +10,9 @@ var userDir = path.join(process.cwd(), '.')
 var defaultDir = path.join(__dirname, '.')
 var staticDir = fs.existsSync(userDir) ? userDir : defaultDir
 
+var routes = require('./public/json/routes.json');
+server.use(jsonServer.rewriter(routes));
+
 server.use(middlewares);
 server.use(router);
 server.listen(3000, function(){console.log('JSON server is running on: localhost:3000')})
