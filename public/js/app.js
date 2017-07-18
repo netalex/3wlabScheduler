@@ -143,7 +143,7 @@ $(function() {
     //     // callback(events);
     // };
 
-    var eventRenderFunction = function(eventData, element) { element.css("font-weight:bold"); };
+    var eventRenderFunction = function(eventData, element) { console.log('eventRenderFunction on'); element.css("font-weight:bold"); console.log('eventRenderFunction off'); };
 
     var eventDropFunction = function(eventData, delta, revertFunc) {
         alert(eventData.title + " was dropped on " + eventData.start.format());
