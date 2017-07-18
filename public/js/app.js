@@ -143,7 +143,7 @@ $(function() {
     //     // callback(events);
     // };
 
-    var eventRenderFunction = function(eventData, element) { console.log('eventRenderFunction on'); element.css("font-weight:bold"); console.log('eventRenderFunction off'); };
+    // var eventRenderFunction = function(eventData, element) { console.log('eventRenderFunction on,\n\r event: '+eventData.title); element.css("font-weight:bold"); console.log('eventRenderFunction off'); };
 
     var eventDropFunction = function(eventData, delta, revertFunc) {
         alert(eventData.title + " was dropped on " + eventData.start.format());
@@ -262,7 +262,7 @@ $(function() {
                         title: $(this).attr('title')
                     });
                 });
-                $('#calendar').fullCalendar('renderEvents', events, true); //or data?
+                // $('#calendar').fullCalendar('renderEvents', events, true); //or data? // events: renderevents fa doppia stampa?
                 callback (events);
                 console.log("eventsGetFunction success");
             },
@@ -273,7 +273,8 @@ $(function() {
         })
         // callback(events);
     },
-        eventRender: function(eventData, element) { eventRenderFunction(eventData, element) },
+        // eventRender: function(eventData, element) { eventRenderFunction(eventData, element) },
+        eventRender: function(eventData, element) { console.log('eventRenderFunction on,\n\r event: '+eventData.title+' '+eventData.id); element.css("font-weight:bold"); console.log('eventRenderFunction off'); },
         eventDrop: function(eventData, delta, revertFunc) { eventDropFunction(eventData, delta, revertFunc) },
         eventResizeStop: function(eventData, jsEvent, ui, view) { eventResizeStopFunction(eventData, jsEvent, ui, view) },
         select: function(start, end, jsEvent, view, resource) { selectFunction(start, end, jsEvent, view, resource) }
