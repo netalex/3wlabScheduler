@@ -24,14 +24,23 @@
         //* CRUD *//
         //update an event
         function updateServer(eventUpdated) {
+            console.log('entering updateServer')
             $.ajax({
                 url: "/events/" + eventUpdated.id,
                 type: "PUT",
                 traditional: true,
                 data: eventUpdated,
-                dataType: "json"
+                dataType: "json",
+                success: function(response) {
+                    console.log('updateServer success:');
+                    console.log(response);
+                },
+                error: function(xhr) {
+                    debugger;
+                    console.log(xhr);
+                }
             });
-        }
+        };
 
         //get config
         $.ajax({
@@ -39,8 +48,10 @@
             type: "GET",
             success: function(configData) {
                 baseMaxEventId = configData.baseMaxEventId;
+                console.log("baseMaxEventId: " + baseMaxEventId);
+                console.log("/config/1: " + JSON.stringify(configData, null, 4));
             }
-        });
+        })
 
 
         $('#calendar').fullCalendar({
@@ -58,19 +69,23 @@
             }],
             minTime: "09:00:00",
             maxTime: "18:00:00",
+            // now: '2017-07-07', //setted for testing pourpose
             now: moment(),
+            // defaultDate: '2017-05-07',
             navLinks: true, // can click day/week names to navigate views
             editable: true, // enable draggable events
             selectable: true,
             selectHelper: true,
             aspectRatio: 3,
             height: $(window).height() * 0.92,
+
+            // scrollTime: '00:00', // undo default 6am scrollTime
             header: {
                 left: 'today prev,next',
                 center: 'title',
                 right: 'timelineDay,timelineThreeDays,timelineFiveDays,timeline31Days,agendaWeek,month'
             },
-            defaultView: 'timeline31Days',
+            defaultView: 'timelineDay',
             views: {
                 timelineThreeDays: {
                     type: 'timeline',
@@ -100,6 +115,7 @@
                 }
             },
             events: function(start, end, timezone, callback) {
+                console.log('entering events');
                 $.ajax({
                     url: '/events',
                     type: 'GET',
@@ -120,7 +136,9 @@
                                 title: $(this).attr('title')
                             });
                         });
+                        console.log("Events Data fetched: \r\n" + JSON.stringify(eventsData, null, 4));
                         $('#calendar').fullCalendar('renderEvents', eventsData, true);
+                        console.log("events: \r\n" + JSON.stringify(events, null, 4));
                         callback(events);
                     },
                     error: function() {
@@ -129,10 +147,14 @@
                 });
             },
             eventRender: function(eventData, element) {
+                console.log('entering eventRender generale');
                 element.css("font-weight:bold");
+                console.log("eventRenderer, evento creato, id: " + eventData.id+"\n\rtitle :"+eventData.title);
             },
             eventDrop: function(eventData, delta, revertFunc) {
+                console.log('entering eventDrop');
                 alert(eventData.title + " was dropped on " + eventData.start.format());
+
                 if (!confirm("Are you sure about this change?")) {
                     revertFunc();
                 } else {
@@ -145,10 +167,13 @@
                         title: eventData.title
                     };
                     updateServer(eventUpdated);
+
                 }
             },
             eventResizeStop: function(eventData, jsEvent, ui, view) {
+                console.log('entering eventResizeStop');
                 alert(eventData.title + " was resized to " + eventData.end.format());
+
                 if (!confirm("Are you sure about this change?")) {
                     revertFunc();
                 } else {
@@ -161,21 +186,64 @@
                         title: eventData.title
                     };
                     updateServer(eventUpdated);
+
                 }
             },
+
             select: function(start, end, jsEvent, view, resource) {
+                console.log('entering select');
+
+              /*   $('#modal').show();
+                console.log("$('#modal').show;");
+
+                $('#close') onclick = function() {
+                    $('#modal').hide();
+                }
+ */
+
+                console.log("CLICK SELECT: \n\r" +
+                    "start: " + start + "\n\r" +
+                    "end: " + end + "\n\r" +
+                    "\n\r"
+                );
+                console.log("jsEvent: ");
+                console.dir(jsEvent);
+                console.log("view: ");
+                console.dir(view);
+
+
                 var title = prompt('Event Title:');
                 var selectedEventData;
+
+
+
+
                 if (title) {
                     selectedEventData = {
                         id: JSON.parse(baseMaxEventId) + 10,
                         resourceId: resource.id,
+                        //come gestire l'array di risorse?
                         start: start.unix(),
                         end: end.unix(),
                         title: title
                     };
-                    baseMaxEventId = JSON.parse(selectedEventData.id) + 1;
+                    console.log('ante quem')
                     $('#calendar').fullCalendar('renderEvent', selectedEventData, true); // stick? = true
+                    console.log('post quem')
+                    baseMaxEventId = JSON.parse(selectedEventData.id) + 1;
+
+                    console.log(
+                        'select callback',
+                        start,
+                        start.unix(),
+                        end,
+                        end.unix(),
+                        resource ? resource.title + ', id: ' + resource.id : '(no resource)',
+                        jsEvent.originalEvent,
+                        selectedEventData,
+                        "baseMaxEventId" + JSON.stringify(baseMaxEventId, null, 4)
+                    );
+
                     $.ajax({
                         url: "/events",
                         type: "POST",
@@ -183,25 +251,56 @@
                         data: selectedEventData,
                         dataType: "json",
                         success: function(response) {
-                            console.log('renderEvent');
+                            console.log('select POST success:');
+                            console.log(response);
+                            $('#calendar').fullCalendar('renderEvent', selectedEventData, true); // stick? = true
+                        },
+                        error: function(xhr) {
+                            debugger;
+                            console.log('error:');
+                            console.log(xhr);
                         }
                     });
+
                     var baseMaxEventIdObj = {
                         "id": "1",
                         "baseMaxEventId": baseMaxEventId
-                    };
+                    }
+
                     $.ajax({
                         url: "/config/1",
                         type: "PUT",
                         data: baseMaxEventIdObj,
                         dataType: "json"
                     });
-                    //$('#calendar').fullCalendar('getResources');
+
+
+                    $('#calendar').fullCalendar('getResources');
+                    //$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
                 }
                 $('#calendar').fullCalendar('unselect');
 
-            }
+            }/*,
+            eventRender: function(eventData, element) {
+                element.css("font-weight:bold");
+                console.log("evento creato, id: " + eventData.id);
+            }*/
+            // dayClick: function(date, jsEvent, view, resource) {
+            //     console.log(
+            //         'dayClick',
+            //         date.format(),
+            //         resource ? resource.title : '(no resource)'
+            //     );
+            // }
         });
+
+        // $('#select-G').on('click', function() {
+        //     $('#calendar').fullCalendar('select', '2017-05-07T02:00:00', '2017-05-07T07:00:00', 'g');
+        // });
+        // $('#select-unspecified').on('click', function() {
+        //     $('#calendar').fullCalendar('select', '2017-05-07T02:00:00', '2017-05-07T07:00:00');
+        // });
+
     });
     </script>
     <style>
@@ -292,10 +391,8 @@
         <!-- Modal content -->
         <div class="multievent-option-modal-content">
             <span class="close">&times;</span>
-            <div>titolo evento:
-                <input type="text"> </div>
+            <div>titolo evento: <input type="text">     </div></div>
         </div>
-    </div>
     </div>
 </body>
 

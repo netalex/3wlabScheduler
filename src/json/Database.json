@@ -2,7 +2,7 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1497"
+      "baseMaxEventId": "1596"
     }
   ],
   "resources": [
@@ -480,16 +480,16 @@
     },
     {
       "id": "1375",
-      "resourceId": "i",
-      "start": "1500285600",
-      "end": "1500303600",
+      "resourceId": "o",
+      "start": "1500292800",
+      "end": "1500310800",
       "title": "ravensburger"
     },
     {
       "id": "1386",
       "resourceId": "h",
-      "start": "1500285600",
-      "end": "1500296400",
+      "start": "1500465600",
+      "end": "1500476400",
       "title": "rosmarino"
     },
     {
@@ -537,8 +537,8 @@
     {
       "id": "1463",
       "resourceId": "h",
-      "start": "1500294600",
-      "end": "1500303600",
+      "start": "1500300000",
+      "end": "1500309000",
       "title": "chiurlo"
     },
     {
@@ -561,6 +561,69 @@
       "start": "1500282000",
       "end": "1500660000",
       "title": "grande"
+    },
+    {
+      "id": "1507",
+      "resourceId": "m",
+      "start": "1500292800",
+      "end": "1500294600",
+      "title": "stefano folli"
+    },
+    {
+      "id": "1518",
+      "resourceId": "m",
+      "start": "1500289200",
+      "end": "1500314400",
+      "title": "pierluigio33"
+    },
+    {
+      "id": "1529",
+      "resourceId": "a",
+      "start": "1500249600",
+      "end": "1501027200",
+      "title": "paralume javascript"
+    },
+    {
+      "id": "1540",
+      "resourceId": "f",
+      "start": "1500422400",
+      "end": "1500940800",
+      "title": "group"
+    },
+    {
+      "id": "1551",
+      "resourceId": "g",
+      "start": "1500422400",
+      "end": "1500681600",
+      "title": "carlitos"
+    },
+    {
+      "id": "1562",
+      "resourceId": "e",
+      "start": "1500422400",
+      "end": "1500681600",
+      "title": "lupo"
+    },
+    {
+      "id": "1573",
+      "resourceId": "o",
+      "start": "1500508800",
+      "end": "1500940800",
+      "title": "carlo porta"
+    },
+    {
+      "id": "1584",
+      "resourceId": "m",
+      "start": "1500508800",
+      "end": "1500940800",
+      "title": "fedeerico"
+    },
+    {
+      "id": "1595",
+      "resourceId": "m",
+      "start": "1500508800",
+      "end": "1500681600",
+      "title": "michele"
     }
   ]
 }
