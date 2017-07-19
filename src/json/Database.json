@@ -2,7 +2,7 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1651"
+      "baseMaxEventId": "1662"
     }
   ],
   "resources": [
@@ -659,6 +659,13 @@
       "start": "1500508800",
       "end": "1501113600",
       "title": "cartoleria"
+    },
+    {
+      "id": "1661",
+      "resourceId": "c",
+      "start": "1501113600",
+      "end": "1501891200",
+      "title": "baudoPippo foobar"
     }
   ]
 }

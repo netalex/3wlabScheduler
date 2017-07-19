@@ -191,7 +191,7 @@ $(function() {
                 title: title
             };
             baseMaxEventId = JSON.parse(selectedEventData.id) + 1;
-            $('#calendar').fullCalendar('renderEvent', selectedEventData, true); // stick? = true
+            $('#calendar').fullCalendar('renderEvent', selectedEventData); // stick? = true
             eventsPostObj(selectedEventData);
             var baseMaxEventIdObj = {
                 "id": "1",
