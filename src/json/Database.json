@@ -2,64 +2,64 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1640"
+      "baseMaxEventId": "1651"
     }
   ],
   "resources": [
     {
       "id": "a",
       "title": "Andrea Capellacci",
-      "eventColor": "Aliceblue"
+      "eventColor": "#1ABD23"
     },
     {
       "id": "b",
       "title": "Alessandro Aprile",
-      "eventColor": "Antiquewhite"
+      "eventColor": "#231ABD"
     },
     {
       "id": "c",
       "title": "Sergio Tosti",
-      "eventColor": "Aqua"
+      "eventColor": "#BD231A"
     },
     {
       "id": "d",
       "title": "Gloria Celentano",
-      "eventColor": "Aquamarine"
+      "eventColor": "#12109E"
     },
     {
       "id": "e",
       "title": "Michele Belloni",
-      "eventColor": "Azure"
+      "eventColor": "#109E12"
     },
     {
       "id": "f",
       "title": "Riccardo Pettinari",
-      "eventColor": "Beige"
+      "eventColor": "#9E1210"
     },
     {
       "id": "g",
       "title": "Claudio Agasi",
-      "eventColor": "Bisque"
+      "eventColor": "#26289E"
     },
     {
       "id": "h",
       "title": "Davide Lombardo",
-      "eventColor": "Black"
+      "eventColor": "#289E26"
     },
     {
       "id": "o",
       "title": "Valentina Mastropietro",
-      "eventColor": "Burlywood"
+      "eventColor": "#9C2527"
     },
     {
       "id": "i",
       "title": "Omar Shalby",
-      "eventColor": "Blanchedalmond"
+      "eventColor": "#0C800A"
     },
     {
       "id": "l",
       "title": "Azadeh Zamani",
-      "eventColor": "Blue"
+      "eventColor": "#0B0D80"
     },
     {
       "id": "m",
@@ -633,12 +633,6 @@
       "title": "fanciurlo"
     },
     {
-      "id": "rkJLz3oBW"
-    },
-    {
-      "id": "BJOif2sHb"
-    },
-    {
       "id": "1617",
       "resourceId": "n",
       "start": "1500508800",
@@ -658,6 +652,13 @@
       "start": "1500595200",
       "end": "1501545600",
       "title": "longboard virtual reality"
+    },
+    {
+      "id": "1650",
+      "resourceId": "r",
+      "start": "1500508800",
+      "end": "1501113600",
+      "title": "cartoleria"
     }
   ]
 }
