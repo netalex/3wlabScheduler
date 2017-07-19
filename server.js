@@ -8,7 +8,8 @@ var fs = require('fs')
 var path = require('path')
 var userDir = path.join(process.cwd(), '.')
 var defaultDir = path.join(__dirname, '.')
-var staticDir = fs.existsSync(userDir) ? userDir : defaultDir
+var staticDir = fs.existsSync(userDir) ? userDir : defaultDir;
+var port = process.env.PORT || 3000;
 
 var routes = require('./public/json/routes.json');
 server.use(jsonServer.rewriter(routes));
