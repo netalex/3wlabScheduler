@@ -16,4 +16,4 @@ server.use(jsonServer.rewriter(routes));
 
 server.use(middlewares);
 server.use(router);
-server.listen(3000, function(){console.log('JSON server is running on: localhost:3000')})
+server.listen(port, function(){console.log('JSON server is running on: localhost:3000')})

@@ -2,7 +2,7 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1662"
+      "baseMaxEventId": "1695"
     }
   ],
   "resources": [
@@ -666,6 +666,20 @@
       "start": "1501113600",
       "end": "1501891200",
       "title": "baudoPippo foobar"
+    },
+    {
+      "id": "1672",
+      "resourceId": "f",
+      "start": "1501027200",
+      "end": "1501113600",
+      "title": "sergio chimenti software"
+    },
+    {
+      "id": "1694",
+      "resourceId": "i",
+      "start": "1501113600",
+      "end": "1501718400",
+      "title": "sergio tacchini app"
     }
   ]
 }

@@ -190,15 +190,15 @@ $(function() {
                 end: end.unix(),
                 title: title
             };
-            baseMaxEventId = JSON.parse(selectedEventData.id) + 1;
             $('#calendar').fullCalendar('renderEvent', selectedEventData); // stick? = true
+            baseMaxEventId = JSON.parse(selectedEventData.id) + 1;
             eventsPostObj(selectedEventData);
             var baseMaxEventIdObj = {
                 "id": "1",
                 "baseMaxEventId": baseMaxEventId
             };
             postConfig(baseMaxEventIdObj);
-            $('#calendar').fullCalendar('getResources');
+            // $('#calendar').fullCalendar('getResources');
         };
         $('#calendar').fullCalendar('unselect');
     };
