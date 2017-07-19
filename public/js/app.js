@@ -68,7 +68,7 @@ $(function() {
     var postConfig = function(data) {
         $.ajax({
                 url: '/config/1',
-                type: 'POST',
+                type: 'PUT',
                 dataType: 'json',
                 data: data,
             })
