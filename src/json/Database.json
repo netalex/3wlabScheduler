@@ -2,7 +2,7 @@
   "config": [
     {
       "id": "1",
-      "baseMaxEventId": "1695"
+      "baseMaxEventId": "1772"
     }
   ],
   "resources": [
@@ -680,6 +680,55 @@
       "start": "1501113600",
       "end": "1501718400",
       "title": "sergio tacchini app"
+    },
+    {
+      "id": "1705",
+      "resourceId": "m",
+      "start": "1501113600",
+      "end": "1501632000",
+      "title": "marocco airlines"
+    },
+    {
+      "id": "1716",
+      "resourceId": "e",
+      "start": "1501200000",
+      "end": "1501632000",
+      "title": "api service"
+    },
+    {
+      "id": "1727",
+      "resourceId": "g",
+      "start": "1501027200",
+      "end": "1501286400",
+      "title": "paolo"
+    },
+    {
+      "id": "1738",
+      "resourceId": "g",
+      "start": "1501632000",
+      "end": "1501891200",
+      "title": "kle"
+    },
+    {
+      "id": "1749",
+      "resourceId": "l",
+      "start": "1501027200",
+      "end": "1501545600",
+      "title": "francesca"
+    },
+    {
+      "id": "1760",
+      "resourceId": "d",
+      "start": "1500940800",
+      "end": "1501200000",
+      "title": "melchior prj"
+    },
+    {
+      "id": "1771",
+      "resourceId": "b",
+      "start": "1500508800",
+      "end": "1502150400",
+      "title": "FIAT spa website"
     }
   ]
 }

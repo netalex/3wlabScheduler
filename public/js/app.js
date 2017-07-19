@@ -182,6 +182,7 @@ $(function() {
     var selectFunction = function(start, end, jsEvent, view, resource) {
         var title = prompt('Event Title:');
         var selectedEventData = {};
+        var selectedEventDataRendered = {};
         if (title) {
             selectedEventData = {
                 id: JSON.parse(baseMaxEventId) + 10,
@@ -190,7 +191,15 @@ $(function() {
                 end: end.unix(),
                 title: title
             };
-            $('#calendar').fullCalendar('renderEvent', selectedEventData); // stick? = true
+            selectedEventDataRendered = {
+                id: JSON.parse(baseMaxEventId) + 10,
+                resourceId: resource.id,
+                start: start,
+                end: end,
+                title: title
+            };
+            console.dir(selectedEventData);
+            console.dir(selectedEventDataRendered);
             baseMaxEventId = JSON.parse(selectedEventData.id) + 1;
             eventsPostObj(selectedEventData);
             var baseMaxEventIdObj = {
@@ -198,7 +207,12 @@ $(function() {
                 "baseMaxEventId": baseMaxEventId
             };
             postConfig(baseMaxEventIdObj);
+            $('#calendar').fullCalendar('renderEvent', selectedEventDataRendered, true); // stick? = true
+            console.log('post renderEvent nuovo');
+
             // $('#calendar').fullCalendar('getResources');
+            $('#calendar').fullCalendar('rerenderEvents');
+            console.log('post renderEvents refresh');
         };
         $('#calendar').fullCalendar('unselect');
     };
@@ -242,39 +256,43 @@ $(function() {
         resources: resourcesObj,
         /*events: function(start, end, callback) { eventsGetFunction(start, end, callback) },*/
         events: function(start, end, timezone, callback) {
-        $.ajax({
-            url: '/events',
-            type: 'GET',
-            dataType: 'json',
-            data: {
-                start: start.unix(),
-                end: end.unix()
-            },
-            success: function(data) {
-                var events = [];
-                $(data).each(function() {
-                    events.push({
-                        id: $(this).attr('id'),
-                        resourceId: $(this).attr('resourceId'),
-                        resourceIds: $(this).attr('resourceIds'),
-                        start: moment.unix($(this).attr('start')).format("YYYY-MM-DDTHH:mm:ss"),
-                        end: moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
-                        title: $(this).attr('title')
+            $.ajax({
+                url: '/events',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    start: start.unix(),
+                    end: end.unix()
+                },
+                success: function(data) {
+                    var events = [];
+                    $(data).each(function() {
+                        events.push({
+                            id: $(this).attr('id'),
+                            resourceId: $(this).attr('resourceId'),
+                            resourceIds: $(this).attr('resourceIds'),
+                            start: moment.unix($(this).attr('start')).format("YYYY-MM-DDTHH:mm:ss"),
+                            end: moment.unix($(this).attr('end')).format("YYYY-MM-DDTHH:mm:ss"),
+                            title: $(this).attr('title')
+                        });
                     });
-                });
-                // $('#calendar').fullCalendar('renderEvents', events, true); //or data? // events: renderevents fa doppia stampa?
-                callback (events);
-                console.log("eventsGetFunction success");
-            },
-            error: function() {
-                $('#script-warning').show();
-                console.log("eventsGetFunction error");
-            }
-        })
-        // callback(events);
-    },
+                    // $('#calendar').fullCalendar('renderEvents', events, true); //or data? // events: renderevents fa doppia stampa?
+                    callback(events);
+                    console.log("eventsGetFunction success");
+                },
+                error: function() {
+                    $('#script-warning').show();
+                    console.log("eventsGetFunction error");
+                }
+            })
+            // callback(events);
+        },
         // eventRender: function(eventData, element) { eventRenderFunction(eventData, element) },
-        eventRender: function(eventData, element) { console.log('eventRenderFunction on,\n\r event: '+eventData.title+' '+eventData.id); element.css("font-weight:bold"); console.log('eventRenderFunction off'); },
+        eventRender: function(eventData, element) {
+            console.log('eventRenderFunction on,\n\r event: ' + eventData.title + ' ' + eventData.id);
+            element.css("font-weight:bold");
+            console.log('eventRenderFunction off');
+        },
         eventDrop: function(eventData, delta, revertFunc) { eventDropFunction(eventData, delta, revertFunc) },
         eventResizeStop: function(eventData, jsEvent, ui, view) { eventResizeStopFunction(eventData, jsEvent, ui, view) },
         select: function(start, end, jsEvent, view, resource) { selectFunction(start, end, jsEvent, view, resource) }
