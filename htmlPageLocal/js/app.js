@@ -29,7 +29,7 @@ $(function() {
 
     var updateServer = function(eventUpdated) {
         $.ajax({
-                url: baseUrl+'/events',
+                url: baseUrl+'/events/'+eventUpdated.id,
                 type: 'PUT',
                 dataType: 'json',
                 data: eventUpdated
