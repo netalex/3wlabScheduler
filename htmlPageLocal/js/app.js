@@ -240,7 +240,7 @@ $(function() {
 
     var eventClickFunction = function(event, jsEvent, view){
         if (confirm("Delete this event??")) {
-            deleteEventFromServer();
+            deleteEventFromServer(event);
             $('#calendar').fullCalendar( 'removeEvents', event.id );
         }
     };
