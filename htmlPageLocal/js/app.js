@@ -4,6 +4,8 @@ $(function() {
 
     var baseMaxEventId = 1000;
 
+    var baseUrl= 'https://tre-wlab-scheduler.herokuapp.com'
+
     var viewsObj = {
         timelineThreeDays: {
             type: 'timeline',
@@ -27,7 +29,7 @@ $(function() {
 
     var updateServer = function(eventUpdated) {
         $.ajax({
-                url: '/events',
+                url: baseUrl+'/events',
                 type: 'PUT',
                 dataType: 'json',
                 data: eventUpdated
@@ -47,7 +49,7 @@ $(function() {
 
     var getConfig = function() {
         $.ajax({
-                url: '/config/1',
+                url: baseUrl+'/config/1',
                 type: 'GET',
                 dataType: 'json',
             })
@@ -67,7 +69,7 @@ $(function() {
 
     var postConfig = function(data) {
         $.ajax({
-                url: '/config/1',
+                url: baseUrl+'/config/1',
                 type: 'PUT',
                 dataType: 'json',
                 data: data,
@@ -84,7 +86,7 @@ $(function() {
     };
 
     var resourcesObj = {
-        url: '/resources',
+        url: baseUrl+'/resources',
         type: 'GET',
         error: function() {
             $('#script-warning').show();
@@ -93,7 +95,7 @@ $(function() {
 
     var eventsPostObj = function(data) {
         $.ajax({
-                url: '/events',
+                url: baseUrl+'/events',
                 type: 'POST',
                 dataType: 'json',
                 data: data,
@@ -257,7 +259,7 @@ $(function() {
         /*events: function(start, end, callback) { eventsGetFunction(start, end, callback) },*/
         events: function(start, end, timezone, callback) {
             $.ajax({
-                url: '/events',
+                url: baseUrl+'/events',
                 type: 'GET',
                 dataType: 'json',
                 data: {
