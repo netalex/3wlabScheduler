@@ -49,7 +49,7 @@ $(function() {
 
     var deleteEventFromServer = function(eventDeleted){
         $.ajax({
-            url: baseUrl+'/events/'+eventUpdated.id,
+            url: baseUrl+'/events/'+eventDeleted.id,
             type: 'DELETE',
         })
         .done(function() {
