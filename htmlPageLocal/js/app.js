@@ -47,6 +47,25 @@ $(function() {
             });
     };
 
+    var deleteEventFromServer = function(eventDeleted){
+        $.ajax({
+            url: baseUrl+'/events/'+eventUpdated.id,
+            type: 'DELETE',
+        })
+        .done(function() {
+            console.log("deleteEventFromServer success:");
+            console.log("event"+eventDeleted.id+", title "+eventDeleted.title+" deleted from server");
+        })
+        .fail(function() {
+            console.log("deleteEventFromServer error:");
+            console.log("event"+eventDeleted.id+", title "+eventDeleted.title+" deletion from server failed");
+        })
+        .always(function() {
+            console.log("deleteEventFromServer complete");
+        });
+
+    }
+
     var getConfig = function() {
         $.ajax({
                 url: baseUrl+'/config/1',
@@ -219,6 +238,13 @@ $(function() {
         $('#calendar').fullCalendar('unselect');
     };
 
+    var eventClickFunction = function(event, jsEvent, view){
+        if (confirm("Delete this event??")) {
+            deleteEventFromServer();
+            $('#calendar').fullCalendar( 'removeEvents', event.id );
+        }
+    };
+
     getConfig();
 
 
@@ -297,7 +323,8 @@ $(function() {
         },
         eventDrop: function(eventData, delta, revertFunc) { eventDropFunction(eventData, delta, revertFunc) },
         eventResizeStop: function(eventData, jsEvent, ui, view) { eventResizeStopFunction(eventData, jsEvent, ui, view) },
-        select: function(start, end, jsEvent, view, resource) { selectFunction(start, end, jsEvent, view, resource) }
+        select: function(start, end, jsEvent, view, resource) { selectFunction(start, end, jsEvent, view, resource) },
+        eventClick: function(event, jsEvent, view){ eventClickFunction(event, jsEvent, view)}
     })
 
 
